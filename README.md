@@ -18,17 +18,21 @@ and the script that built the networks are not included (see [Data](#data)).
 
 ## Requirements
 
-The Python version used for the paper is not documented. `train.py` places the model on `cuda:0`, so
-it needs a CUDA GPU. The paper reports training on an NVIDIA A100 GPU.
+The Python version used for the paper is not documented, but the pinned versions need Python 3.8:
+pandas 1.1.0 and scikit-learn 0.23.1 have PyPI wheels only up to Python 3.8, and matplotlib 3.7.0
+needs Python 3.8 or later. `train.py` places the model on `cuda:0`, so it needs a CUDA GPU. The
+paper reports training on an NVIDIA A100 GPU.
 
 ```bash
 pip install -r requirements.txt
 ```
 
-`requirements.txt` lists all of the project's dependencies, pinned as they were committed with the
-code. Most pins carry a `+computecanada` local version from the Digital Research Alliance of Canada
-wheelhouse (for example `torch==1.13.1+computecanada`), which pip cannot find outside an Alliance
-cluster. The number before the `+` is the upstream version. The packages that the code imports are
+`requirements.txt` holds the environment of the paper with the same version numbers from PyPI. Its
+first line points pip to the PyTorch Geometric wheel index for `torch-scatter` and `torch-sparse`
+with torch 1.13 and CUDA 11.7. For a CPU-only machine, change `cu117` to `cpu` in that line. The
+set resolves without conflicts for Python 3.8 on Linux. `requirements-alliance.txt` is the original
+freeze from the Digital Research Alliance of Canada cluster, where most versions carry the
+`+computecanada` label of the Alliance wheelhouse. The packages that the code imports are
 `torch`, `torch-geometric`, `numpy`, `pandas`, `scipy`, `scikit-learn`, `tqdm`, `wandb` and
 `carbontracker`.
 
@@ -99,6 +103,7 @@ for the epochs (default 5) and the dropout (default 0.2), so the command above s
  | |-utils.py
  |-train.py
  |-requirements.txt
+ |-requirements-alliance.txt
  |-CITATION.cff
  |-LICENSE
 ```
@@ -108,7 +113,8 @@ for the epochs (default 5) and the dropout (default 0.2), so the command above s
 - `utils/utils.py`: functions used by the other files: the losses, the metrics and their bootstrap,
   the oversampling of embeddings, the logging and the profit output.
 - `train.py`: the script that runs the experiments.
-- `requirements.txt`: the file that lists the project's dependencies.
+- `requirements.txt`: the project's dependencies, with the versions of the paper from PyPI.
+- `requirements-alliance.txt`: the same environment as frozen on the Alliance cluster.
 
 ## Evaluation
 
