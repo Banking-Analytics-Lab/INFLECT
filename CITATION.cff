@@ -1,0 +1,39 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper below."
+title: "INFLECT"
+license: GPL-3.0
+authors:
+  - family-names: "Tiukhova"
+    given-names: "Elena"
+  - family-names: "Penaloza"
+    given-names: "Emiliano"
+  - family-names: "Óskarsdóttir"
+    given-names: "María"
+  - family-names: "Baesens"
+    given-names: "Bart"
+  - family-names: "Snoeck"
+    given-names: "Monique"
+  - family-names: "Bravo"
+    given-names: "Cristián"
+preferred-citation:
+  type: article
+  title: "INFLECT-DGNN: Influencer Prediction With Dynamic Graph Neural Networks"
+  year: 2024
+  journal: "IEEE Access"
+  volume: 12
+  start: 115026
+  end: 115041
+  doi: "10.1109/ACCESS.2024.3443533"
+  authors:
+    - family-names: "Tiukhova"
+      given-names: "Elena"
+    - family-names: "Penaloza"
+      given-names: "Emiliano"
+    - family-names: "Óskarsdóttir"
+      given-names: "María"
+    - family-names: "Baesens"
+      given-names: "Bart"
+    - family-names: "Snoeck"
+      given-names: "Monique"
+    - family-names: "Bravo"
+      given-names: "Cristián"
